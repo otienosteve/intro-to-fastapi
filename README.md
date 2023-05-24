@@ -8,7 +8,7 @@ The decoupling can be based done on a couple of factors:
 
 The API provides a gateway for the decoupled applications to communicate. 
 
-![API Block Diagram](/api_BD.png)
+![API Block Diagram](/api_BD.png)   
 
 One application will send data the other and the other will consume the data via the API and Vice Versa.    
 
