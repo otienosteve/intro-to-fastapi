@@ -25,7 +25,7 @@ The details concerning REST are beyond the scope of this lesson and in the inter
 [What Is A RESTful API? -AWS ](https://aws.amazon.com/what-is/restful-api/)  
 [What is a REST API?](https://www.redhat.com/en/topics/api/what-is-a-rest-api)  
 
-## HHTP Methods (Verbs)
+## HTTP Methods (Verbs)
 The most common way of implementing REST API's is via the use of HTTP (Hypertext Transfer Protocol). HTTP has 5 methods it uses to communicate to the server which correspond to the CRUD (CREATE, READ, UPDATE, DELETE) operations.
 
 `GET` -READ -  retrieve data from the server     
@@ -47,6 +47,37 @@ http://localhost:8000/students
 http://localhost:8000/students  
 http://localhost:8000/students  
 http://localhost:8000/students 
+
+## JSON
+ When interacting with an API, for data to be transfered between the systems/apps it's important to provide a neutral format for the exchange of data.    
+ This is necessitated by the fact that the types in one app may not be compatible with the types in another.    
+ consider Javascrpt and Python as an example.  
+ `Javascript - (Number, Boolean, String etc).`     
+ `Python - (int, float, str, tupl, list etc)`  
+ Being that the types in the two programming langauages are incompatible, a neutral format must be incoprated to facilitate the interaction between the two.    
+ There are various data agnostic formats that can be used by API's to provide and consume data. `XML, RSS, CSV, JSON ` are just some of the ways. For our API's the format we will be using is `JSON`.  
+ `JSON` is a lightweight, data interchange format that's easy for human beings to read and write and for machines to parse and generate.  
+ It was created by .______  
+ JSON (Javscript Object Notation) is somewhat similar to javscript Objects save for the fact that it uses double quotaion marks.     
+ syntax:
+ ```{
+"key" :"value",
+"key2":"value3"
+ }
+ ```    
+ Example:
+ ```
+ {"id":1,
+    "name":"Roy Fielding",
+ }
+ ```    
+ Note- The fact that JSON and a javscript object are somewhat similar in structure doesn't mean they are the same type nor does it imply that they can be used directly without parsing. JSON inherited from javscript objects but it has to be parsed to a javscript object to be used in javscript. 
+ ```
+ JSON.stringify(object) 
+ #convert from a javascript object to JSON
+ JSON.parse(JSON)
+ #convert from JSON to a javascript object.
+ ```
 
 ## json-server
 
@@ -78,7 +109,7 @@ For example if your data looked like this and your server was spinned at port 30
     ]
 }
 ```
-you can perfrom the following CRUD operations on the corresponding endpoints.
+you can perfrom the following CRUD operations on the corresponding endpoints.   
  `GET http://localhost:3000/users`  -> get all users    
  `GET http://localhost:3000/users/:id` -> get a single user     
  `POST http://localhost:3000/users/` -> add a new user   
@@ -119,11 +150,24 @@ you can perfrom the following CRUD operations on the corresponding endpoints.
 - uvicorn -This tool is useful for running our server and allow endpoints defined by fastapi to be exposed for interaction with other applications. It's the engine in which will run our fastapi app.  
 - pydantic - will be used to define our data schemas and provide validation to our data. 
 - Sqlalchemy -ORM to interact with our database.
-- alembic -run migrations on our data.
+- alembic - run migrations on our database.
 
 The diagram below depicts the workflow of our application.
 
-![Workflow BD](./Pydantic-Uvicorn-Fastapi-BD.png)
+![Workflow BD](./Pydantic-Uvicorn-Fastapi-BD.png) 
+
+## sources  
+[Resources -MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Identifying_resources_on_the_Web)  
+[Official Fast API Documentation](https://fastapi.tiangolo.com/)    
+[Python web frameworks](https://rapidapi.com/blog/best-python-api-frameworks/)  
+[What is an API?](https://www.mulesoft.com/resources/api/what-is-an-api)    
+[Types of API's](https://blog.hubspot.com/website/types-of-apis)    
+[API Data formats](https://wp.nyu.edu/developers/data-formats/) 
+[JSON](https://www.json.org/json-en.html)
+
+
+
+
 
 
 
