@@ -1,30 +1,32 @@
 # INTRODUCTION TO API'S
 
+## What is an API?
+
 API (Application Programming Interface ) is a way for decoupled applications to communicate with each other.    
 A decoupled application is an application whose components are developed, tested and deployed separately.   
 The decoupling can be based done on a couple of factors:
  - Backend or frontend (the frontend and backend are developed and deployed separately)
  - Modularity (the applications modules (different logical aspects of an application) are developed separately i.e for a POS system the Sales, Inventory, User and other modules are developed and deployed separately)    
-
-The API provides a gateway for the decoupled applications to communicate. 
+The interaction is depicted in the illustration below.
 
 ![API Block Diagram](/api_BD.png)   
 
-One application will send data the other and the other will consume the data via the API and Vice Versa.    
+One application will send data via the API and the other will consume the data via the API. 
 
-It's important to note that there 3 most notable types of API's.    
+It's important to note that there 3 most popular types of API's.    
     - REST (Representational State Transfer)      
     - SOAP (Simple Object Access Protocol)   
     - RPC (Remote Procedure Call)   
-Our focus will be on REST API's which is the most widely used but just to pique your curiosity the difference between the 3 lies in their architecture specification.  
+Our focus will be on REST API's which is the most widely used but just to pique your curiosity the difference between the 3 lies in their architectural specification.  
 
-Rest is a constraint based architecture for creating web API's and whose services communicate using the HTTP (Hypertext Transfer Protocol) protocol.    
+Rest is a constraint based architecture for creating web API's and whose services communicate using the HTTP (Hypertext Transfer Protocol) .    
 The details concerning REST are beyond the scope of this lesson and in the interest of keeping things  simple we won't delve deep into it's architecture design and constraints but you can leverage the following resources to  learn more. 
 
 [What Is A RESTful API? -AWS ](https://aws.amazon.com/what-is/restful-api/)  
 [What is a REST API?](https://www.redhat.com/en/topics/api/what-is-a-rest-api)  
 
-The most common way of implementing REST API's is via the use of HTTP (Hypertext Transfer Protocol). HTTP has 5 methods it uses to communicate to the server which correspond to the CRUD (CREATE, READ, UPDATE, DELETE)methods.
+## HHTP Methods (Verbs)
+The most common way of implementing REST API's is via the use of HTTP (Hypertext Transfer Protocol). HTTP has 5 methods it uses to communicate to the server which correspond to the CRUD (CREATE, READ, UPDATE, DELETE) operations.
 
 `GET` -READ -  retrieve data from the server     
 `POST` -CREATE - add data to the server  
@@ -32,8 +34,8 @@ The most common way of implementing REST API's is via the use of HTTP (Hypertext
 `PATCH` -UPDATE -  partial update of data on the server      
 `DELETE` -DELETE -  delete data from the server 
 
-When making HTTP request we usually target resources(web content). The resource's nature could be multimedia content, database, an HTML document, a file etc. 
-These resources will live at a certain location on the server also known as a URI(uniform resource identifier). 
+When making HTTP request we usually target resources (web content). The resource's nature could be multimedia content, database, an HTML document, a file etc. 
+These resources will live at a certain location on the server also known as a URI (uniform resource identifier). 
 
 The diagram below depicts the structure of a URI
 
@@ -44,7 +46,9 @@ Example uri's include:
 http://localhost:8000/students  
 http://localhost:8000/students  
 http://localhost:8000/students  
-http://localhost:8000/students  
+http://localhost:8000/students 
+
+## json-server
 
 If you have ever used json server to quicly spin up a mock server, you would have noticed that it creates a couple of local URI's to interact with local data.  
 For example if your data looked like this and your server was spinned at port 3000.
@@ -109,8 +113,18 @@ you can perfrom the following CRUD operations on the corresponding endpoints.
  - Intutive
  - short 
  - Standards Based 
- You can explore more on the official documentation.    
-    
+ You can explore more on the official documentation. 
+
+ we will be using FastAPI in conjunction with a few other tools which include. 
+- uvicorn -This tool is useful for running our server and allow endpoints defined by fastapi to be exposed for interaction with other applications. It's the engine in which will run our fastapi app.  
+- pydantic - will be used to define our data schemas and provide validation to our data. 
+- Sqlalchemy -ORM to interact with our database.
+- alembic -run migrations on our data.
+
+The diagram below depicts the workflow of our application.
+
+![Workflow BD](./Pydantic-Uvicorn-Fastapi-BD.png)
+
 
 
 
