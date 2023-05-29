@@ -39,6 +39,85 @@ The diagram below depicts the structure of a URI
 
 ![STRUCTURE OF A URI](./URI_structure_BD.png)   
 
+Example uri's include:  
+
+http://localhost:8000/students  
+http://localhost:8000/students  
+http://localhost:8000/students  
+http://localhost:8000/students  
+
+If you have ever used json server to quicly spin up a mock server, you would have noticed that it creates a couple of local URI's to interact with local data.  
+For example if your data looked like this and your server was spinned at port 3000.
+```
+{
+    "users":[
+{"id":1,
+"first_name":"Finn",
+"last_name":"Salerg",
+"email":"fsalerg0@furl.net",
+"gender":"Male",
+"profile":"https://randomuser.me/api/portraits/men/91.jpg"},
+
+{"id":2,
+"first_name":"Roslyn",
+"last_name":"Phillott",
+"email":"rphillott1@stanford.edu",
+"gender":"Female",
+"profile":"https://randomuser.me/api/portraits/women/27.jpg"},
+
+{"id":3,
+"first_name":"Lemar",
+"last_name":"Summersby",
+"email":"lsummersby2@jalbum.net",
+"gender":"Male",
+"profile":"https://randomuser.me/api/portraits/men/88.jpg"}
+    ]
+}
+```
+you can perfrom the following CRUD operations on the corresponding endpoints.
+ `GET http://localhost:3000/users`  -> get all users    
+ `GET http://localhost:3000/users/:id` -> get a single user     
+ `POST http://localhost:3000/users/` -> add a new user   
+ `PATCH http://localhost:3000/users/:id`  -> partial update of an existing user  
+ `PUT http://localhost:3000/users/:id`  -> partial update of an existing user   
+ `DELETE http://localhost:3000/users/:id`   -> delete a user
+
+ json-server being a mock server mimics a real server's functionality but is not robust enough to handle programming needs in production. some of it's shortfalls are
+ - Inability to create your own custom endpoints. The resource name has to match the key in your json-server. in our case `/users`
+ - Inability to perform validation on your data before persisting it.
+ - Data is stored on a file and as there's no ACID compliance when interacting with our data. 
+ Find out more about ACID compliance here.   
+ 
+ That's not to say that Json-server is a bad tool that should be avoided at all cost.   
+ on the contrary it's a very useful tool for testing the interaction of your frontend app will have with your server in the event that the server is not yet ready.        
+ It's beginner friendly as it bypasses the complexity involved with coming up with your own server. 
+
+ Enough of the talk n Json-server. let's have a look at it's replacement.
+
+ # FASTAPI
+
+ From the documentation it's a high performance, easy to learn, fast to code, ready for production web framework designed for building api's with Python 3.7+.
+
+ There are other python frameworks available including but not limited to Tornado, Sanic, Falcon, Bottle, to mention but a few. 
+
+ The choice of FastAPi is motivated by the fact that it's easy to learn and being a student I hope you will find it less intimidating to learn and work with.   
+
+ As per the documentation these are the salient features of FastAPI.    
+ - Fast(speed)                  
+ - Robust  
+ - Fewer Bugs
+ - Intutive
+ - short 
+ - Standards Based 
+ You can explore more on the official documentation.    
+    
+
+
+
+
+
+
+
 
 
 
