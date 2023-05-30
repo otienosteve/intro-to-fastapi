@@ -43,10 +43,8 @@ The diagram below depicts the structure of a URI
 
 Example uri's include:  
 
-http://localhost:8000/students  
-http://localhost:8000/students  
-http://localhost:8000/students  
-http://localhost:8000/students 
+http://localhost:8000/students    
+http://users.com/user         
 
 ## JSON
  When interacting with an API, for data to be transfered between the systems/apps it's important to provide a neutral format for the exchange of data.    
@@ -57,7 +55,7 @@ http://localhost:8000/students
  Being that the types in the two programming langauages are incompatible, a neutral format must be incoprated to facilitate the interaction between the two.    
  There are various data agnostic formats that can be used by API's to provide and consume data. `XML, RSS, CSV, JSON ` are just some of the ways. For our API's the format we will be using is `JSON`.  
  `JSON` is a lightweight, data interchange format that's easy for human beings to read and write and for machines to parse and generate.  
- It was created by .______  
+ It was created by Douglas Crockford. 
  JSON (Javscript Object Notation) is somewhat similar to javscript Objects save for the fact that it uses double quotaion marks.     
  syntax:
  ```{
@@ -156,6 +154,7 @@ The diagram below depicts the workflow of our application.
 
 ![Workflow BD](./Pydantic-Uvicorn-Fastapi-BD.png) 
 
+That's all for this lesson. In the next lesson, we will introduce FastAPi installations and making Get Requests. 
 ## sources  
 [Resources -MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Identifying_resources_on_the_Web)  
 [Official Fast API Documentation](https://fastapi.tiangolo.com/)    
@@ -164,6 +163,7 @@ The diagram below depicts the workflow of our application.
 [Types of API's](https://blog.hubspot.com/website/types-of-apis)    
 [API Data formats](https://wp.nyu.edu/developers/data-formats/) 
 [JSON](https://www.json.org/json-en.html)
+
 
 
 
